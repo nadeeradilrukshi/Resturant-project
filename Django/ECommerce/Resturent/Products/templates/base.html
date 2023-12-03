@@ -5,14 +5,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}NDR Resturants{% endblock %}</title>
+    <title>{% block title %}ZARA Resturants{% endblock %}</title>
 
    <!-- Add this in the <head> section of your HTML -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        background-color: white;
+        color: #333;
+    }
+    h1, h2 {
+        color: red;
+        text-align: center;
+        font-family: 'Helvetica', sans-serif;
+    }
+    section {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        padding: 30px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 12px;
+    }
+    .carousel-item img {
+        border-radius: 12px;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+    footer {
+        text-align: center;
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #004080;
+        color: #fff;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
@@ -31,8 +77,15 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/viewcart">My cart</a>
+                    <a class="nav-link" href="/about-us">About Us</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/viewcart">Cart</a>
+                  </li>
+                  
               
                 </ul>
                 <form class="d-flex">
@@ -54,9 +107,66 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+    <section>
+      <h2 >Our Journey in Pictures</h2>
+      <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="row">
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest1.jpg' %}" class="d-block w-100" alt="Slide 1">
+                      </div>
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest2.webp' %}" class="d-block w-100" alt="Slide 2">
+                      </div>
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest3.jpg' %}" class="d-block w-100" alt="Slide 3">
+                      </div>
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest4.jpg' %}" class="d-block w-100" alt="Slide 4">
+                      </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                  <div class="row">
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest5.jfif' %}" class="d-block w-100" alt="Slide 5">
+                      </div>
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest6.jpg' %}" class="d-block w-100" alt="Slide 6">
+                      </div>
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest7.jpeg' %}" class="d-block w-100" alt="Slide 7">
+                      </div>
+                      <div class="col-sm">
+                          <img src="{% static 'images/rest8.jpg' %}" class="d-block w-100" alt="Slide 8">
+                      </div>
+                  </div>
+              </div>
+              <!-- Add more sets of images as needed -->
+          </div>
+          <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+      </div>
+  </section>
 
     <footer>
-        <p>&copy; 2023 My Django Site</p>
+      <p>Contact us - Contact No:0707770009    Email:<a href="Zara@example.com" style="color: #fff; text-decoration: underline;">Zara@example.com</a></p>
+  </footer>
+
+  <!-- Include Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <footer>
+        <p>&copy; Thank You for join with us</p>
     </footer>
 </div>
 </body>
