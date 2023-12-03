@@ -2,12 +2,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, CartItem
 from django.contrib.auth.decorators import login_required
 from . import models
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     products = models.Product.objects.all()
     return render(request, 'products.html', {'products': products})
 
+<<<<<<< HEAD
 @login_required(login_url='/admin/login/')
+=======
+@login_required(login_url='/admin/login')
+>>>>>>> 3461c8d8206900db727de398cf1652ed838d4e42
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
