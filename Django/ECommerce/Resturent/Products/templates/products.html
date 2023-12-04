@@ -11,8 +11,8 @@
                 <img src="{% static 'images/'%}{{ product.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title"><b>{{ product.name }}</b></h5>
-                  <p>Price: Rs:{{ product.price }}/=</p>
-                  <p class="card-text">{{ product.description }}</p>
+                  <p style="color: rgb(11, 106, 43);">Rs:{{ product.price }}</p>
+                  <p class="card-text" style="text-align: justify;">{{ product.description }}</p>
                   <a href="{% url 'add_to_cart' product.id %}" class="btn btn-secondary">Add to Cart</a>
                 </div>
               </div>
