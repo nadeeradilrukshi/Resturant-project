@@ -1,0 +1,38 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+   
+<body>
+    
+
+
+
+    <div class="container ">
+        <h1>Products </h1>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src="{% static 'images/'%}{{ product.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ product.name }}</h5>
+                      <p>Price: Rs:{{ product.price }}/=</p>
+                      <p class="card-text">{{ product.description }}</p>
+                      <a href="{% url 'add_to_cart' product.id %}" class="btn btn-secondary">Add to Cart</a>
+                    </div>
+                  </div>
+              </div>
+            {% endfor %}
+       
+      </div>
+
+
+  
+
+        <!-- Include Bootstrap JS and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+    </html>
+    {% endblock %}

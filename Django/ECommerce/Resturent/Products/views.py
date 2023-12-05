@@ -4,9 +4,7 @@ from django.contrib.auth.decorators import login_required
 from . import models
 from django.contrib.auth.decorators import login_required
 
-def home(request):
-    products = models.Product.objects.all()
-    return render(request, 'products.html', {'products': products})
+
 
 
 @login_required(login_url='/admin/login/')
@@ -68,10 +66,18 @@ def about_us_template(request):
     return render(request, 'about_us.html')
 
 def categories_template(request):  
+     return render(request, 'categories.html')
+
+
+def home1(request):
+     return render(request, 'base.html')
+ 
+def homepage(request):
+     return render(request, 'homepage.html')
+ 
+def items(request):
+     return render(request, 'items.html')
+
+def items(request):  
     products = models.Product.objects.all()
-    return render(request,'categories.html',{'products': products})
-
-
-def home(request):
-     products = models.Product.objects.all()
-     return render(request, 'products.html',{'products': products})
+    return render(request,'items.html',{'products': products})
