@@ -3,7 +3,7 @@ from .models import Product, CartItem
 from django.contrib.auth.decorators import login_required
 from . import models
 from django.contrib.auth.decorators import login_required
-
+from django.db.models import Q
 
 
 
@@ -75,9 +75,18 @@ def home1(request):
 def homepage(request):
      return render(request, 'homepage.html')
  
-def items(request):
-     return render(request, 'items.html')
+# def items(request):
+#      return render(request, 'items.html')
 
-def items(request):  
-    products = models.Product.objects.all()
-    return render(request,'items.html',{'products': products})
+# def items(request):  
+#     products = models.Product.objects.all()
+#     return render(request,'items.html',{'products': products})
+
+def items(request):
+    query = request.GET.get('q')
+    if query:
+        products = models.Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+    else:
+        products = models.Product.objects.all()
+
+    return render(request, 'items.html', {'products': products})
