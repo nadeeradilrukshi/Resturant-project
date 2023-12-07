@@ -11,4 +11,5 @@ class CartItemAdmin(admin.ModelAdmin):
     list_display = ('user', 'product', 'quantity')
     search_fields = ['user__username', 'product__name']
 
+
 # Register your models here.
