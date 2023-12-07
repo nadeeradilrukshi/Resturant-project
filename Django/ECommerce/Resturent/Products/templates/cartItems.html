@@ -21,8 +21,8 @@
                     <tr>
                         <td>{{ item.product.name }}</td>
                         <td>{{ item.quantity }}</td>
-                        <td>Rs:{{ item.product.price }}</td>
-                        <td>Rs:{{ item.subtotal }}</td>
+                        <td>LKR {{ item.product.price }}</td>
+                        <td>LKR {{ item.subtotal }}</td>
                         <th> <a href="{% url 'add_to_cart' item.product.id %}" class="btn btn-secondary">Add</a></th>
                         <th> <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-secondary">Remove</a></th>
                     </tr>
@@ -31,7 +31,7 @@
         </table>
 
         <div class="text-right">
-            <p><strong>Total Price: ${{ full_total }}</strong></p>
+            <p><strong>Total Price: LKR {{ full_total }}</strong></p>
         </div>
     </div>
 
