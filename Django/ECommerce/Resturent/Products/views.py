@@ -59,7 +59,7 @@ def view_cart(request):
             'subtotal': subtotal,
         })
 
-    return render(request, 'cartItems.html', {'cart_items': cart_info})
+    return render(request, 'cartItems.html', {'cart_items': cart_info, 'full_total': full_total})
 
 
 def about_us_template(request):  
