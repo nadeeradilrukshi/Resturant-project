@@ -4,6 +4,16 @@ from django.contrib.auth.decorators import login_required
 from . import models
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+
+
+# ... (your other views)
 
 
 
@@ -90,3 +100,23 @@ def items(request):
         products = models.Product.objects.all()
 
     return render(request, 'items.html', {'products': products})
+
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')  # Change 'home' to the name of your home view
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+# views.py
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')  # Replace 'login' with the actual name or path of your login view

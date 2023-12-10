@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form method="post" action="{% url 'signup' %}" class="signup-form">
+      {% csrf_token %}
+      
+      <!-- Display form errors if any -->
+      {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+          Please fix the errors below.
+        </div>
+      {% endif %}
+
+      <!-- Username -->
+      <div class="mb-3">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {% if form.username.errors %}
+          <small class="text-danger">{{ form.username.errors|first }}</small>
+        {% endif %}
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {% if form.email.errors %}
+          <small class="text-danger">{{ form.email.errors|first }}</small>
+        {% endif %}
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        {{ form.password1.label_tag }}
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+          <small class="text-danger">{{ form.password1.errors|first }}</small>
+        {% endif %}
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        {{ form.password2.label_tag }}
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+          <small class="text-danger">{{ form.password2.errors|first }}</small>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+{% endblock %}
