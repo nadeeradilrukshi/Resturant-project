@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="container mt-4">
-        <h2> Cart Items</h2>
+        <h2 style="color: #004080; font-family: 'Amasis MT Pro Light';"> Cart Items</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -32,9 +32,10 @@
 
         <div class="text-right">
             <p><strong>Total Price: LKR {{ full_total }}</strong></p>
+            <a href="{% url 'checkout' %}" class="btn btn-primary" style="background-color: #ff0000; color: #fff; border: 1px solid #ff0000;">Check Out</a>
+            <p id="order-confirmation" style="display: none;">Order Confirmed</p>
         </div>
     </div>
-
     
 {% endblock %}
 

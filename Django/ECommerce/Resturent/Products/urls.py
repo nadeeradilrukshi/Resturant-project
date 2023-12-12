@@ -10,6 +10,7 @@ from .views import (
     items,
     signup,
     logout_view,
+    checkout,
 )
 
 urlpatterns = [
@@ -23,5 +24,5 @@ urlpatterns = [
     path('items/', items, name='items'),
     path('signup/', signup, name='signup'),
     path('logout/', logout_view, name='logout'),  # Use your custom logout view
+    path('checkout/', checkout, name='checkout'),
 ]
-

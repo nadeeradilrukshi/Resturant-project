@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div style="display: flex; align-items: center;">
+            <img src="{% static 'images/Green_tick.png' %}" alt="Tick Image" style="width: 45px; height: 45px; margin-right: 10px;">
+            <p style="color: rgb(11, 106, 43); margin: 0;">Order confirmed. Thank you for choosing our service!</p>
+        </div>
+        <!-- Additional checkout information can be added here -->
+        <img src="{% static 'images/oc_ty2.gif' %}" alt="Thank You Image" style="width: 100%; height: auto; margin-top: 20px;">
+    </div>
+{% endblock %}
+

@@ -11,7 +11,7 @@ class Product(models.Model):
     description = models.TextField()
     category = models.CharField(max_length=255)
     
-    def __str__(self):
+    def _str_(self):
         return self.name
 
 class CartItem(models.Model):
@@ -19,7 +19,7 @@ class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
-    def __str__(self):
+    def _str_(self):
         return f"{self.user.username}'s {self.product.name} ({self.quantity})"
 
 
@@ -51,5 +51,5 @@ class CustomUser(AbstractUser):
         verbose_name='user permissions',
     )
 
-    def __str__(self):
+    def _str_(self):
         return self.username

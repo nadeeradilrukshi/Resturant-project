@@ -12,7 +12,6 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 
 
-
 # ... (your other views)
 
 
@@ -95,7 +94,7 @@ def homepage(request):
 def items(request):
     query = request.GET.get('q')
     if query:
-        products = models.Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        products = models.Product.objects.filter(Q(name_icontains=query) | Q(description_icontains=query))
     else:
         products = models.Product.objects.all()
 
@@ -120,3 +119,6 @@ def signup(request):
 def logout_view(request):
     logout(request)
     return redirect('login')  # Replace 'login' with the actual name or path of your login view
+
+def checkout(request):
+    return render(request, 'checkout.html')
